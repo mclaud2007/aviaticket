@@ -11,11 +11,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CountryListController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate> : UIViewController
+@interface CountryListController: UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
 @property UITableView *tableView;
 @property UISearchController *searchController;
 @property NSMutableArray *countries;
+
+- (void)doSearch:(NSString *)query;
 
 @end
 

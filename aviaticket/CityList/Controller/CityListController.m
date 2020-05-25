@@ -12,7 +12,7 @@
 #import "CityListCell.h"
 #import "City.h"
 
-@interface CityListController<UITableViewDelegate, UITableViewDataSource> ()
+@interface CityListController ()
 
 @end
 

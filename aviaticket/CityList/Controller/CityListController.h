@@ -14,7 +14,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CityListController<UITableViewDelegate, UITableViewDataSource> : UIViewController
+@interface CityListController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property Country *selectedCountry;
 @property NSMutableArray *cities;

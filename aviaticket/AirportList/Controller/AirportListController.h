@@ -14,7 +14,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AirportListController<UITableViewDelegate,UITableViewDataSource> : UIViewController
+@interface AirportListController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property UITableView *tableView;
 @property Country *selectedCountry;
