@@ -13,8 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AirportCell : UITableViewCell
 
-@property UILabel *airportName;
-@property UILabel *airportCode;
+@property (nonatomic, strong) UILabel *airportName;
+@property (nonatomic, strong) UILabel *airportCode;
 
 - (void)configureUI;
 - (void)configureWith:(Airport *)airport;

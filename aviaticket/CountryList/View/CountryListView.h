@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CountryListView : UIView
 
-@property UITableView *tableView;
-@property UISearchController *searchController;
+@property (nonatomic, strong, nonnull) UITableView *tableView;
+@property (nonatomic, strong) UISearchController *searchController;
 - (void) configureUI;
 
 @end

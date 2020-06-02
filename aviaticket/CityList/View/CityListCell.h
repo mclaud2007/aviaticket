@@ -13,8 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CityListCell : UITableViewCell
 
-@property UILabel *cityName;
-@property UILabel *cityCode;
+@property (nonatomic, strong) UILabel *cityName;
+@property (nonatomic, strong) UILabel *cityCode;
 
 - (void)configureUI;
 - (void)configureWith:(City *)city;

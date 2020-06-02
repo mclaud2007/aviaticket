@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		072ED85A2483EA43008F7099 /* NewsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 072ED8592483EA43008F7099 /* NewsListController.m */; };
+		072ED85D2483F349008F7099 /* NewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 072ED85C2483F349008F7099 /* NewsView.m */; };
+		072ED8602483F871008F7099 /* NewsListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 072ED85F2483F871008F7099 /* NewsListTableCell.m */; };
+		072ED867248401AC008F7099 /* NewsDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 072ED866248401AC008F7099 /* NewsDetailController.m */; };
+		072ED86A248401BF008F7099 /* NewsDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 072ED869248401BF008F7099 /* NewsDetailView.m */; };
 		073601D72471433D0045452D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 073601D62471433D0045452D /* AppDelegate.m */; };
 		073601DA2471433D0045452D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 073601D92471433D0045452D /* SceneDelegate.m */; };
 		073601E2247143400045452D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 073601E1247143400045452D /* Assets.xcassets */; };
@@ -17,6 +22,10 @@
 		073601FC247154E20045452D /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 073601F9247154E20045452D /* countries.json */; };
 		073601FD247154E20045452D /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 073601FA247154E20045452D /* cities.json */; };
 		073601FE247154E20045452D /* airports.json in Resources */ = {isa = PBXBuildFile; fileRef = 073601FB247154E20045452D /* airports.json */; };
+		075B1265248512B70015B61A /* PhotoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 075B1264248512B70015B61A /* PhotoService.m */; };
+		0760AD0D2484C89F00B200E7 /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760AD0C2484C89F00B200E7 /* NetworkService.m */; };
+		0760AD102484DDCD00B200E7 /* NewsData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760AD0F2484DDCD00B200E7 /* NewsData.m */; };
+		0760AD132484E33700B200E7 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760AD122484E33700B200E7 /* News.m */; };
 		07A7713C247155FB00A0963A /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A7713B247155FB00A0963A /* Country.m */; };
 		07A7713F2471565000A0963A /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A7713E2471565000A0963A /* City.m */; };
 		07A77142247156AF00A0963A /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A77141247156AF00A0963A /* Airport.m */; };
@@ -31,6 +40,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		072ED8582483EA43008F7099 /* NewsListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsListController.h; sourceTree = "<group>"; };
+		072ED8592483EA43008F7099 /* NewsListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsListController.m; sourceTree = "<group>"; };
+		072ED85B2483F349008F7099 /* NewsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsView.h; sourceTree = "<group>"; };
+		072ED85C2483F349008F7099 /* NewsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsView.m; sourceTree = "<group>"; };
+		072ED85E2483F871008F7099 /* NewsListTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsListTableCell.h; sourceTree = "<group>"; };
+		072ED85F2483F871008F7099 /* NewsListTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsListTableCell.m; sourceTree = "<group>"; };
+		072ED865248401AC008F7099 /* NewsDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsDetailController.h; sourceTree = "<group>"; };
+		072ED866248401AC008F7099 /* NewsDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsDetailController.m; sourceTree = "<group>"; };
+		072ED868248401BF008F7099 /* NewsDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsDetailView.h; sourceTree = "<group>"; };
+		072ED869248401BF008F7099 /* NewsDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsDetailView.m; sourceTree = "<group>"; };
 		073601D22471433D0045452D /* aviaticket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aviaticket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		073601D52471433D0045452D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
 		073601D62471433D0045452D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../AppDelegate.m; sourceTree = "<group>"; };
@@ -47,6 +66,14 @@
 		073601F9247154E20045452D /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
 		073601FA247154E20045452D /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
 		073601FB247154E20045452D /* airports.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = airports.json; sourceTree = "<group>"; };
+		075B1263248512B70015B61A /* PhotoService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoService.h; sourceTree = "<group>"; };
+		075B1264248512B70015B61A /* PhotoService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoService.m; sourceTree = "<group>"; };
+		0760AD0B2484C89F00B200E7 /* NetworkService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkService.h; sourceTree = "<group>"; };
+		0760AD0C2484C89F00B200E7 /* NetworkService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkService.m; sourceTree = "<group>"; };
+		0760AD0E2484DDB700B200E7 /* NewsData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsData.h; sourceTree = "<group>"; };
+		0760AD0F2484DDCD00B200E7 /* NewsData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsData.m; sourceTree = "<group>"; };
+		0760AD112484E33700B200E7 /* News.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
+		0760AD122484E33700B200E7 /* News.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
 		07A7713A247155FB00A0963A /* Country.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Country.h; sourceTree = "<group>"; };
 		07A7713B247155FB00A0963A /* Country.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Country.m; sourceTree = "<group>"; };
 		07A7713D2471565000A0963A /* City.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
@@ -82,6 +109,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		072ED8532483EA08008F7099 /* NewsController */ = {
+			isa = PBXGroup;
+			children = (
+				072ED8562483EA23008F7099 /* Model */,
+				072ED8552483EA19008F7099 /* View */,
+				072ED8542483EA13008F7099 /* Controller */,
+			);
+			path = NewsController;
+			sourceTree = "<group>";
+		};
+		072ED8542483EA13008F7099 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				072ED8582483EA43008F7099 /* NewsListController.h */,
+				072ED8592483EA43008F7099 /* NewsListController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		072ED8552483EA19008F7099 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				072ED85B2483F349008F7099 /* NewsView.h */,
+				072ED85C2483F349008F7099 /* NewsView.m */,
+				072ED85E2483F871008F7099 /* NewsListTableCell.h */,
+				072ED85F2483F871008F7099 /* NewsListTableCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		072ED8562483EA23008F7099 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		072ED86124840158008F7099 /* NewsDetailController */ = {
+			isa = PBXGroup;
+			children = (
+				072ED86424840176008F7099 /* Model */,
+				072ED86324840171008F7099 /* View */,
+				072ED8622484016A008F7099 /* Controller */,
+			);
+			path = NewsDetailController;
+			sourceTree = "<group>";
+		};
+		072ED8622484016A008F7099 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				072ED865248401AC008F7099 /* NewsDetailController.h */,
+				072ED866248401AC008F7099 /* NewsDetailController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		072ED86324840171008F7099 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				072ED868248401BF008F7099 /* NewsDetailView.h */,
+				072ED869248401BF008F7099 /* NewsDetailView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		072ED86424840176008F7099 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0760AD112484E33700B200E7 /* News.h */,
+				0760AD122484E33700B200E7 /* News.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		073601C92471433D0045452D = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +202,9 @@
 		073601D42471433D0045452D /* aviaticket */ = {
 			isa = PBXGroup;
 			children = (
+				0760AD0A2484C87F00B200E7 /* Helpers */,
+				072ED86124840158008F7099 /* NewsDetailController */,
+				072ED8532483EA08008F7099 /* NewsController */,
 				073601F8247154D00045452D /* Data */,
 				07A771592471852B00A0963A /* AirportList */,
 				07A7714C247164DE00A0963A /* CityList */,
@@ -162,6 +266,17 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		0760AD0A2484C87F00B200E7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0760AD0B2484C89F00B200E7 /* NetworkService.h */,
+				0760AD0C2484C89F00B200E7 /* NetworkService.m */,
+				075B1263248512B70015B61A /* PhotoService.h */,
+				075B1264248512B70015B61A /* PhotoService.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		0762C7CA2471979D002CD502 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +307,8 @@
 				07A7713E2471565000A0963A /* City.m */,
 				07A77140247156AF00A0963A /* Airport.h */,
 				07A77141247156AF00A0963A /* Airport.m */,
+				0760AD0E2484DDB700B200E7 /* NewsData.h */,
+				0760AD0F2484DDCD00B200E7 /* NewsData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -342,20 +459,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0760AD132484E33700B200E7 /* News.m in Sources */,
 				073601F7247148E10045452D /* CountryListView.m in Sources */,
 				07A771522471653300A0963A /* CityListController.m in Sources */,
 				073601D72471433D0045452D /* AppDelegate.m in Sources */,
+				072ED867248401AC008F7099 /* NewsDetailController.m in Sources */,
 				07A7715F2471856D00A0963A /* AirportListController.m in Sources */,
 				07A771452471574800A0963A /* CountryListViewCell.m in Sources */,
 				073601E8247143400045452D /* main.m in Sources */,
+				072ED85A2483EA43008F7099 /* NewsListController.m in Sources */,
+				072ED8602483F871008F7099 /* NewsListTableCell.m in Sources */,
+				075B1265248512B70015B61A /* PhotoService.m in Sources */,
 				073601F4247145A70045452D /* CountryListController.m in Sources */,
 				07A771622471882800A0963A /* AirportListView.m in Sources */,
 				07A7713C247155FB00A0963A /* Country.m in Sources */,
 				07A7716524718A9000A0963A /* AirportCell.m in Sources */,
 				07A77142247156AF00A0963A /* Airport.m in Sources */,
+				072ED86A248401BF008F7099 /* NewsDetailView.m in Sources */,
+				0760AD0D2484C89F00B200E7 /* NetworkService.m in Sources */,
 				07A77158247181BB00A0963A /* CityListCell.m in Sources */,
+				072ED85D2483F349008F7099 /* NewsView.m in Sources */,
 				07A7713F2471565000A0963A /* City.m in Sources */,
 				07A771552471685600A0963A /* CityListView.m in Sources */,
+				0760AD102484DDCD00B200E7 /* NewsData.m in Sources */,
 				07A7714B247158DA00A0963A /* DataManager.m in Sources */,
 				073601DA2471433D0045452D /* SceneDelegate.m in Sources */,
 			);

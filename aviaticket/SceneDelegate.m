@@ -8,6 +8,8 @@
 
 #import "SceneDelegate.h"
 #import "CountryListController.h"
+#import "NewsListController.h"
+#import "CountryListController.h"
 
 @interface SceneDelegate ()
 
@@ -22,13 +24,29 @@
         self.window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene];
     }
 
-    // Первая страница приложения - это список стран,
-    // которая (страница) вложена в навКонтроллер
+    // Приложение завернуто в ТабБарконтрол
+    UITabBarController *tabBar = [[UITabBarController alloc] init];
+    
+    // Вкладка новостей
+    UITabBarItem *newsListItem = [[UITabBarItem alloc] initWithTitle:@"News" image:[UIImage systemImageNamed:@"book"] tag:0];
+    NewsListController *newsList = [[NewsListController alloc] init];
+    
+    // Она завернута в навигешен контроллер
+    UINavigationController *newsNavController = [[UINavigationController alloc] initWithRootViewController:newsList];
+    newsNavController.tabBarItem = newsListItem;
+
+    // Вкладка со странами
+    UITabBarItem *countryListItem = [[UITabBarItem alloc] initWithTitle:@"Airports" image:[UIImage systemImageNamed:@"airplane"] tag:1];
     CountryListController *countryList = [[CountryListController alloc] init];
+    
+    // У нее отдельный навигейшен контроллер
+    UINavigationController *navCountryControll = [[UINavigationController alloc] initWithRootViewController:countryList];
+    navCountryControll.tabBarItem = countryListItem;
 
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:countryList];
-
-    self.window.rootViewController = navController;
+    tabBar.viewControllers = @[newsNavController, navCountryControll];
+    
+    // Показываем окно
+    self.window.rootViewController = tabBar;
     [self.window makeKeyAndVisible];
     
 }
