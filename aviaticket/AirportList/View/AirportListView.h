@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AirportListView : UIView
 
-@property UITableView *tableView;
+@property (nonatomic, strong, nonnull) UITableView *tableView;
 
 - (void)configureUI;
 

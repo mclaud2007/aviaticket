@@ -7,12 +7,8 @@
 //
 
 #import "CityListController.h"
-#import "AirportListController.h"
-#import "CityListView.h"
-#import "CityListCell.h"
-#import "City.h"
 
-@interface CityListController<UITableViewDelegate, UITableViewDataSource> ()
+@interface CityListController ()
 
 @end
 
@@ -41,8 +37,6 @@
             [self.cities addObject:testCity];
         }
     }
-    
-    
 }
 
 // MARK: Lifecycle

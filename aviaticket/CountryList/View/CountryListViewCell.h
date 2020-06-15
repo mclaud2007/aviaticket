@@ -13,8 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CountryListViewCell : UITableViewCell
 
-@property UILabel *countryName;
-@property UILabel *countryCode;
+@property (nonatomic, strong) UILabel *countryName;
+@property (nonatomic, strong) UILabel *countryCode;
 
 -(void)configureUI;
 -(void)configureWith:(Country *)country;

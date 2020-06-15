@@ -1,8 +1,8 @@
 //
-//  CityListView.h
+//  NewsView.h
 //  aviaticket
 //
-//  Created by Григорий Мартюшин on 17.05.2020.
+//  Created by Григорий Мартюшин on 31.05.2020.
 //  Copyright © 2020 Григорий Мартюшин. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CityListView : UIView
+@interface NewsView : UIView
 
 @property (nonatomic, strong, nonnull) UITableView *tableView;
 

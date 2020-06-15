@@ -11,15 +11,17 @@
 #import "Country.h"
 #import "City.h"
 #import "DataManager.h"
+#import "AirportListView.h"
+#import "AirportCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AirportListController<UITableViewDelegate,UITableViewDataSource> : UIViewController
+@interface AirportListController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
-@property UITableView *tableView;
-@property Country *selectedCountry;
-@property City *selectedCity;
-@property NSMutableArray *airports;
+@property (nonatomic, strong, nonnull) UITableView *tableView;
+@property (nonatomic, strong) Country *selectedCountry;
+@property (nonatomic, strong) City *selectedCity;
+@property (nonatomic, strong) NSMutableArray *airports;
 
 - (instancetype) initWithCity:(City *) city AndCountry:(Country *)country;
 
