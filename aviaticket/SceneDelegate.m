@@ -43,7 +43,7 @@
     UINavigationController *navCountryControll = [[UINavigationController alloc] initWithRootViewController:countryList];
     navCountryControll.tabBarItem = countryListItem;
 
-    tabBar.viewControllers = @[newsNavController, navCountryControll];
+    tabBar.viewControllers = @[navCountryControll, newsNavController];
     
     // Показываем окно
     self.window.rootViewController = tabBar;
