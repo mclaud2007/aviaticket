@@ -37,6 +37,8 @@
 		07A7715F2471856D00A0963A /* AirportListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A7715E2471856D00A0963A /* AirportListController.m */; };
 		07A771622471882800A0963A /* AirportListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A771612471882800A0963A /* AirportListView.m */; };
 		07A7716524718A9000A0963A /* AirportCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A7716424718A9000A0963A /* AirportCell.m */; };
+		07EF4DD32497B6BF000BD5C2 /* MapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EF4DD22497B6BF000BD5C2 /* MapController.m */; };
+		07EF4DDC2497B8D9000BD5C2 /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EF4DDB2497B8D9000BD5C2 /* MapView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +98,10 @@
 		07A771612471882800A0963A /* AirportListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirportListView.m; sourceTree = "<group>"; };
 		07A7716324718A9000A0963A /* AirportCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirportCell.h; sourceTree = "<group>"; };
 		07A7716424718A9000A0963A /* AirportCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirportCell.m; sourceTree = "<group>"; };
+		07EF4DD12497B6BF000BD5C2 /* MapController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapController.h; sourceTree = "<group>"; };
+		07EF4DD22497B6BF000BD5C2 /* MapController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapController.m; sourceTree = "<group>"; };
+		07EF4DDA2497B8D9000BD5C2 /* MapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
+		07EF4DDB2497B8D9000BD5C2 /* MapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +208,7 @@
 		073601D42471433D0045452D /* aviaticket */ = {
 			isa = PBXGroup;
 			children = (
+				07EF4DD02497B668000BD5C2 /* MapController */,
 				0760AD0A2484C87F00B200E7 /* Helpers */,
 				072ED86124840158008F7099 /* NewsDetailController */,
 				072ED8532483EA08008F7099 /* NewsController */,
@@ -387,6 +394,41 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		07EF4DD02497B668000BD5C2 /* MapController */ = {
+			isa = PBXGroup;
+			children = (
+				07EF4DD62497B79E000BD5C2 /* Model */,
+				07EF4DD52497B793000BD5C2 /* View */,
+				07EF4DD42497B6EA000BD5C2 /* Controller */,
+			);
+			path = MapController;
+			sourceTree = "<group>";
+		};
+		07EF4DD42497B6EA000BD5C2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				07EF4DD12497B6BF000BD5C2 /* MapController.h */,
+				07EF4DD22497B6BF000BD5C2 /* MapController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		07EF4DD52497B793000BD5C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				07EF4DDA2497B8D9000BD5C2 /* MapView.h */,
+				07EF4DDB2497B8D9000BD5C2 /* MapView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		07EF4DD62497B79E000BD5C2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -475,8 +517,10 @@
 				07A7713C247155FB00A0963A /* Country.m in Sources */,
 				07A7716524718A9000A0963A /* AirportCell.m in Sources */,
 				07A77142247156AF00A0963A /* Airport.m in Sources */,
+				07EF4DDC2497B8D9000BD5C2 /* MapView.m in Sources */,
 				072ED86A248401BF008F7099 /* NewsDetailView.m in Sources */,
 				0760AD0D2484C89F00B200E7 /* NetworkService.m in Sources */,
+				07EF4DD32497B6BF000BD5C2 /* MapController.m in Sources */,
 				07A77158247181BB00A0963A /* CityListCell.m in Sources */,
 				072ED85D2483F349008F7099 /* NewsView.m in Sources */,
 				07A7713F2471565000A0963A /* City.m in Sources */,
