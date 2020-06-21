@@ -37,7 +37,8 @@
     
     // Объявляем делегат для поиска
     self.searchController = view.searchController;
-    self.searchController.searchBar.delegate = self;
+    self.resultViewController = view.resultViewController;
+    self.searchController.searchResultsUpdater = self;
     self.definesPresentationContext = YES;
     
     // Регистрируем класс для отображения ячейки
@@ -46,7 +47,10 @@
     // Загружаем данные
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadDataComplete:) name:kDataManagerLoadDataDidComplete object:nil];
     [[DataManager sharedInstance] loadData];
-    
+}
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    [self doSearch:searchController.searchBar.text];
 }
 
 - (void)loadDataComplete:(NSNotification *)notification {
@@ -88,27 +92,11 @@
     // Если текстовое поле пустое значит надо вывести первоначальный список стран
     if ([query length] > 0) {
         NSArray *testCountries = [DataManager sharedInstance].countries;
-        [self.countries removeAllObjects];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name CONTAINS [cd] %@ OR SELF.code CONTAINS [cd] %@", query, query];
         
-        for (NSUInteger i = 0; i < [testCountries count]; i++) {
-            Country *testCountry = [testCountries objectAtIndex:i];
-            
-            if ([testCountry.code rangeOfString:query].location != NSNotFound
-                 ||
-                [testCountry.name rangeOfString:query].location != NSNotFound)
-            {
-                [self.countries addObject:testCountry];
-            }
-        }
-    } else {
-        self.countries = [NSMutableArray arrayWithArray:[DataManager sharedInstance].countries];
+        self.resultViewController.results = [testCountries filteredArrayUsingPredicate:predicate];
+        [self.resultViewController update];
     }
-    
-    [self.tableView reloadData];
-}
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    [self doSearch:searchText];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {

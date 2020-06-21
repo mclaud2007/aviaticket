@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "CountryListView.h"
+#import "SearchResultControllerTableViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CountryListController: UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+@interface CountryListController: UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating>
 
 @property UITableView *tableView;
 @property UISearchController *searchController;
+@property (nonatomic, strong) SearchResultControllerTableViewController *resultViewController;
 @property NSMutableArray *countries;
 
 - (void)doSearch:(NSString *)query;

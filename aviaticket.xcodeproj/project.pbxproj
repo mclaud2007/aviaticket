@@ -37,6 +37,9 @@
 		07A7715F2471856D00A0963A /* AirportListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A7715E2471856D00A0963A /* AirportListController.m */; };
 		07A771622471882800A0963A /* AirportListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A771612471882800A0963A /* AirportListView.m */; };
 		07A7716524718A9000A0963A /* AirportCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A7716424718A9000A0963A /* AirportCell.m */; };
+		07D0F82A249FBB2700C7B99F /* SearchResultControllerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D0F829249FBB2700C7B99F /* SearchResultControllerTableViewController.m */; };
+		07D0F831249FD18F00C7B99F /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D0F830249FD18F00C7B99F /* CollectionViewController.m */; };
+		07D0F835249FDB2200C7B99F /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D0F834249FDB2200C7B99F /* CollectionViewCell.m */; };
 		07EF4DD32497B6BF000BD5C2 /* MapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EF4DD22497B6BF000BD5C2 /* MapController.m */; };
 		07EF4DDC2497B8D9000BD5C2 /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EF4DDB2497B8D9000BD5C2 /* MapView.m */; };
 /* End PBXBuildFile section */
@@ -98,6 +101,12 @@
 		07A771612471882800A0963A /* AirportListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirportListView.m; sourceTree = "<group>"; };
 		07A7716324718A9000A0963A /* AirportCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirportCell.h; sourceTree = "<group>"; };
 		07A7716424718A9000A0963A /* AirportCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirportCell.m; sourceTree = "<group>"; };
+		07D0F828249FBB2700C7B99F /* SearchResultControllerTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResultControllerTableViewController.h; sourceTree = "<group>"; };
+		07D0F829249FBB2700C7B99F /* SearchResultControllerTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResultControllerTableViewController.m; sourceTree = "<group>"; };
+		07D0F82F249FD18F00C7B99F /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		07D0F830249FD18F00C7B99F /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		07D0F833249FDB2200C7B99F /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		07D0F834249FDB2200C7B99F /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		07EF4DD12497B6BF000BD5C2 /* MapController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapController.h; sourceTree = "<group>"; };
 		07EF4DD22497B6BF000BD5C2 /* MapController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapController.m; sourceTree = "<group>"; };
 		07EF4DDA2497B8D9000BD5C2 /* MapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
@@ -208,6 +217,7 @@
 		073601D42471433D0045452D /* aviaticket */ = {
 			isa = PBXGroup;
 			children = (
+				07D0F82B249FD15800C7B99F /* CollectionsController */,
 				07EF4DD02497B668000BD5C2 /* MapController */,
 				0760AD0A2484C87F00B200E7 /* Helpers */,
 				072ED86124840158008F7099 /* NewsDetailController */,
@@ -240,6 +250,8 @@
 			children = (
 				073601F2247145A70045452D /* CountryListController.h */,
 				073601F3247145A70045452D /* CountryListController.m */,
+				07D0F828249FBB2700C7B99F /* SearchResultControllerTableViewController.h */,
+				07D0F829249FBB2700C7B99F /* SearchResultControllerTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -394,6 +406,33 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		07D0F82B249FD15800C7B99F /* CollectionsController */ = {
+			isa = PBXGroup;
+			children = (
+				07D0F832249FDB1100C7B99F /* View */,
+				07D0F82C249FD16900C7B99F /* Controller */,
+			);
+			path = CollectionsController;
+			sourceTree = "<group>";
+		};
+		07D0F82C249FD16900C7B99F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				07D0F82F249FD18F00C7B99F /* CollectionViewController.h */,
+				07D0F830249FD18F00C7B99F /* CollectionViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		07D0F832249FDB1100C7B99F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				07D0F833249FDB2200C7B99F /* CollectionViewCell.h */,
+				07D0F834249FDB2200C7B99F /* CollectionViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		07EF4DD02497B668000BD5C2 /* MapController */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,6 +546,7 @@
 				073601D72471433D0045452D /* AppDelegate.m in Sources */,
 				072ED867248401AC008F7099 /* NewsDetailController.m in Sources */,
 				07A7715F2471856D00A0963A /* AirportListController.m in Sources */,
+				07D0F835249FDB2200C7B99F /* CollectionViewCell.m in Sources */,
 				07A771452471574800A0963A /* CountryListViewCell.m in Sources */,
 				073601E8247143400045452D /* main.m in Sources */,
 				072ED85A2483EA43008F7099 /* NewsListController.m in Sources */,
@@ -517,6 +557,7 @@
 				07A7713C247155FB00A0963A /* Country.m in Sources */,
 				07A7716524718A9000A0963A /* AirportCell.m in Sources */,
 				07A77142247156AF00A0963A /* Airport.m in Sources */,
+				07D0F831249FD18F00C7B99F /* CollectionViewController.m in Sources */,
 				07EF4DDC2497B8D9000BD5C2 /* MapView.m in Sources */,
 				072ED86A248401BF008F7099 /* NewsDetailView.m in Sources */,
 				0760AD0D2484C89F00B200E7 /* NetworkService.m in Sources */,
@@ -527,6 +568,7 @@
 				07A771552471685600A0963A /* CityListView.m in Sources */,
 				0760AD102484DDCD00B200E7 /* NewsData.m in Sources */,
 				07A7714B247158DA00A0963A /* DataManager.m in Sources */,
+				07D0F82A249FBB2700C7B99F /* SearchResultControllerTableViewController.m in Sources */,
 				073601DA2471433D0045452D /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

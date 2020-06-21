@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SearchResultControllerTableViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, nonnull) UITableView *tableView;
 @property (nonatomic, strong) UISearchController *searchController;
+@property (nonatomic, strong) SearchResultControllerTableViewController *resultViewController;
 - (void) configureUI;
 
 @end
