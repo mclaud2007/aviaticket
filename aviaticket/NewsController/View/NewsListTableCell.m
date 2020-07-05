@@ -26,16 +26,18 @@
     self.lblTitle.text = @"";
     self.lblDescription.text = @"";
     self.imgNews.image = nil;
+    [self.btnAddToFavorite setImage:[UIImage systemImageNamed:@"star"] forState:UIControlStateNormal];
 }
 
-- (void)configureWithNews:(News *)news {
+- (void)configureWith:(News *)news indexPath:(NSIndexPath *)indexPath {
     self.lblTitle.text = news.title;
     self.lblDescription.text = news.short_description;
+    self.indexPath = indexPath;
     
     // Есть картинка
-    if (news.imageUrl != nil) {
+    if (news.imageURL != nil) {
         // Загружаем фотографию
-        [[PhotoService instance] getPhotoBy:news.imageUrl :^(UIImage * _Nonnull data) {
+        [[PhotoService instance] getPhotoBy:news.imageURL :^(UIImage * _Nonnull data) {
             if (data != nil) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     self.imgNews.image = data;
@@ -46,6 +48,14 @@
                 self.imgNews.image = [UIImage imageNamed:@"nonews"];
             }
         }];
+        
+        // Проверяем есть ли запись в избранном
+        FavoriteNews *favorite = [[CoreDataStack shared] favoriteFromNews:news];
+        if (!favorite) {
+            [self.btnAddToFavorite setImage:[UIImage systemImageNamed:@"star"] forState:UIControlStateNormal];
+        } else {
+            [self.btnAddToFavorite setImage:[UIImage systemImageNamed:@"star.fill"] forState:UIControlStateNormal];
+        }
     } 
 }
 
@@ -61,6 +71,7 @@
     self.lblDescription.numberOfLines = 5;
     self.lblDescription.font = [UIFont systemFontOfSize:12];
     self.lblDescription.textColor = [UIColor grayColor];
+    self.lblDescription.numberOfLines = 3;
     [self addSubview:self.lblDescription];
     
     self.imgNews = [[UIImageView alloc] init];
@@ -70,7 +81,16 @@
     self.imgNews.contentMode = UIViewContentModeScaleAspectFill;
     self.imgNews.translatesAutoresizingMaskIntoConstraints = false;
     
+    CGRect rect = CGRectMake(0, 0, 24, 24);
+    self.btnAddToFavorite = [[UIButton alloc] initWithFrame:rect];
+    
+    UIImage *starImg = [UIImage systemImageNamed:@"star"];
+    [self.btnAddToFavorite setImage:starImg forState:UIControlStateNormal];
+    [self.btnAddToFavorite addTarget:self action:@selector(starButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    self.btnAddToFavorite.translatesAutoresizingMaskIntoConstraints = false;
+    
     [self addSubview:self.imgNews];
+    [self addSubview:self.btnAddToFavorite];
     
     NSLayoutConstraint *widthImage = [NSLayoutConstraint constraintWithItem:self.imgNews attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeWidth multiplier:1 constant:100];
     NSLayoutConstraint *heightImage = [NSLayoutConstraint constraintWithItem:self.imgNews attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationLessThanOrEqual toItem:self.imgNews attribute:NSLayoutAttributeHeight multiplier:1 constant:1];
@@ -86,11 +106,21 @@
     NSLayoutConstraint *lblDescriptionRight = [NSLayoutConstraint constraintWithItem:self.lblDescription attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.safeAreaLayoutGuide attribute:NSLayoutAttributeRight multiplier:1 constant:-10];
     NSLayoutConstraint *lblDescriptionTop = [NSLayoutConstraint constraintWithItem:self.lblDescription attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.lblTitle attribute:NSLayoutAttributeBottom multiplier:1 constant:5];
     
+    NSLayoutConstraint *widthStarImage = [NSLayoutConstraint constraintWithItem:self.btnAddToFavorite attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeWidth multiplier:1 constant:24];
+    NSLayoutConstraint *heightStarImage = [NSLayoutConstraint constraintWithItem:self.btnAddToFavorite attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeHeight multiplier:1 constant:24];
+    NSLayoutConstraint *bottomStarImage = [NSLayoutConstraint constraintWithItem:self.btnAddToFavorite attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.safeAreaLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1 constant:-10];
+    NSLayoutConstraint *rightStarImage = [NSLayoutConstraint constraintWithItem:self.btnAddToFavorite attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.safeAreaLayoutGuide attribute:NSLayoutAttributeRight multiplier:1 constant:-10];
+    
     // Массив констрейнтов для активации
-    NSArray *constraints = [NSArray arrayWithObjects:widthImage, heightImage, topImage, leftImage, topLblTitle, bottomImage, leftLblTitle, rightLblTitle, lblDescriptionTop, lblDescriptionLeft, lblDescriptionRight, nil];
+    NSArray *constraints = [NSArray arrayWithObjects:widthImage, heightImage, topImage, leftImage, topLblTitle, bottomImage, leftLblTitle, rightLblTitle, lblDescriptionTop, lblDescriptionLeft, lblDescriptionRight, widthStarImage, heightStarImage, bottomStarImage, rightStarImage, nil];
     
     // Активируем констрейнты
     [NSLayoutConstraint activateConstraints:constraints];
+}
+
+- (void)starButtonClicked
+{
+    self.btnClickedDelegate(self);
 }
 
 @end

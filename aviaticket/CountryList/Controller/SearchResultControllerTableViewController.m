@@ -52,7 +52,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Ищем выбранную страну
     Country *selCountry = [self.results objectAtIndex:indexPath.row];
-    NSLog(@"%@", selCountry);
     
     if (selCountry != nil) {
         UIViewController *cityController = (CityListController *) [[CityListController alloc] initWithCountry:selCountry];

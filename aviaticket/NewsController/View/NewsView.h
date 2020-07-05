@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NewsView : UIView
 
 @property (nonatomic, strong, nonnull) UITableView *tableView;
+@property (nonatomic, strong) UISegmentedControl *segmentedControl;
 
 - (void)configureUI;
 

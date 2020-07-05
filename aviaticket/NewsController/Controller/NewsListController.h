@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nonnull) UITableView *tableView;
 @property (nonatomic, strong) NetworkService *service;
 @property (nonatomic, strong) NSMutableArray *newsList;
+@property (nonatomic, strong) UISegmentedControl *segmentedControl;
 
 @end
 
