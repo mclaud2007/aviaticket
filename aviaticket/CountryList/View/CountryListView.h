@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nonnull) UITableView *tableView;
 @property (nonatomic, strong) UISearchController *searchController;
 @property (nonatomic, strong) SearchResultControllerTableViewController *resultViewController;
+@property (nonatomic, strong) UILabel *lblLoading;
+@property (nonatomic, strong) UIView *loadingScreen;
 - (void) configureUI;
 
 @end

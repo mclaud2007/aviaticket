@@ -11,6 +11,7 @@
 #import "NewsListController.h"
 #import "CountryListController.h"
 #import "CollectionViewController.h"
+#import "NotificationCenter.h"
 
 @interface SceneDelegate ()
 
@@ -62,6 +63,7 @@
     self.window.rootViewController = tabBar;
     [self.window makeKeyAndVisible];
     
+    [[NotificationCenter shared] registerService];
 }
 
 
@@ -89,13 +91,5 @@
     // Called as the scene transitions from the background to the foreground.
     // Use this method to undo the changes made on entering the background.
 }
-
-
-- (void)sceneDidEnterBackground:(UIScene *)scene {
-    // Called as the scene transitions from the foreground to the background.
-    // Use this method to save data, release shared resources, and store enough scene-specific state information
-    // to restore the scene back to its current state.
-}
-
 
 @end

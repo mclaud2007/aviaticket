@@ -27,6 +27,7 @@
 		0760AD0D2484C89F00B200E7 /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760AD0C2484C89F00B200E7 /* NetworkService.m */; };
 		0760AD102484DDCD00B200E7 /* NewsData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760AD0F2484DDCD00B200E7 /* NewsData.m */; };
 		0760AD132484E33700B200E7 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760AD122484E33700B200E7 /* News.m */; };
+		077FC2C724B237F900396133 /* NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 077FC2C624B237F900396133 /* NotificationCenter.m */; };
 		07A7713C247155FB00A0963A /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A7713B247155FB00A0963A /* Country.m */; };
 		07A7713F2471565000A0963A /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A7713E2471565000A0963A /* City.m */; };
 		07A77142247156AF00A0963A /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A77141247156AF00A0963A /* Airport.m */; };
@@ -84,6 +85,9 @@
 		0760AD0F2484DDCD00B200E7 /* NewsData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsData.m; sourceTree = "<group>"; };
 		0760AD112484E33700B200E7 /* News.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
 		0760AD122484E33700B200E7 /* News.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
+		077FC2C524B237F900396133 /* NotificationCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationCenter.h; sourceTree = "<group>"; };
+		077FC2C624B237F900396133 /* NotificationCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationCenter.m; sourceTree = "<group>"; };
+		077FC2C824B250B400396133 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		07A7713A247155FB00A0963A /* Country.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Country.h; sourceTree = "<group>"; };
 		07A7713B247155FB00A0963A /* Country.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Country.m; sourceTree = "<group>"; };
 		07A7713D2471565000A0963A /* City.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
@@ -310,6 +314,8 @@
 				075B1264248512B70015B61A /* PhotoService.m */,
 				07BD665E24B195DA003D0819 /* CoreDataStack.h */,
 				07BD665F24B195DA003D0819 /* CoreDataStack.m */,
+				077FC2C524B237F900396133 /* NotificationCenter.h */,
+				077FC2C624B237F900396133 /* NotificationCenter.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -527,6 +533,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 073601C92471433D0045452D;
 			productRefGroup = 073601D32471433D0045452D /* Products */;
@@ -569,6 +576,7 @@
 				073601E8247143400045452D /* main.m in Sources */,
 				072ED85A2483EA43008F7099 /* NewsListController.m in Sources */,
 				072ED8602483F871008F7099 /* NewsListTableCell.m in Sources */,
+				077FC2C724B237F900396133 /* NotificationCenter.m in Sources */,
 				075B1265248512B70015B61A /* PhotoService.m in Sources */,
 				073601F4247145A70045452D /* CountryListController.m in Sources */,
 				07BD666024B195DA003D0819 /* CoreDataStack.m in Sources */,
@@ -602,6 +610,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				073601E4247143400045452D /* Base */,
+				077FC2C824B250B400396133 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -613,6 +622,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -671,6 +681,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
