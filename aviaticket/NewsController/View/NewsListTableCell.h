@@ -10,6 +10,7 @@
 #import "News.h"
 #import "PhotoService.h"
 #import "NetworkService.h"
+#import "CoreDataStack.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,10 +18,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UILabel *lblTitle;
 @property (nonatomic, strong) UILabel *lblDescription;
+@property (nonatomic, strong) UIButton *btnAddToFavorite;
 @property (nonatomic, strong) UIImageView *imgNews;
+@property (nonatomic) NSIndexPath *indexPath;
+@property (nonatomic, strong, nullable) void (^btnClickedDelegate)(NewsListTableCell *sender);
 
 - (void)configureUI;
-- (void)configureWithNews:(News *)news;
+- (void)configureWith:(News *)news indexPath:(NSIndexPath *)indexPath;
 
 @end
 
