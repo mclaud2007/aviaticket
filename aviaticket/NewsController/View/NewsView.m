@@ -29,7 +29,7 @@
     
     CGRect rect = CGRectMake(0, 0, self.bounds.size.width, 50);
     UIView *tableHeaderView = [[UIView alloc] initWithFrame:rect];
-    self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Новости", @"Избранное"]];
+    self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[NSLocalizedString(@"newsTabTitle", @""), NSLocalizedString(@"favoriteTitle", @"")]];
     self.segmentedControl.translatesAutoresizingMaskIntoConstraints = false;
     self.segmentedControl.selectedSegmentIndex = 0;
     [tableHeaderView addSubview:_segmentedControl];

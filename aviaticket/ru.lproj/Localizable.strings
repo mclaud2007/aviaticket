@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  aviaticket
+
+  Created by Григорий Мартюшин on 15.07.2020.
+  Copyright © 2020 Григорий Мартюшин. All rights reserved.
+*/
+"newsTabTitle"="Новости";
+"favoriteTitle"="Избранное";
+"airportsTabTitle"="Страны";
+"photosTabTitle"="Фотографии";
+"loading"="... Загрузка ...";
+"reminderText"="Вы просили напомнить, что выбрали %@";
+"reminderTextTitle"="Напоминание о выборе";
+"remindMakeDoneTitle"="Успешно";
+"remindWillSendMessage"="Уведомление будет отправлено - %@";
+"close"="Закрыть";
+"airportTitle"="Аэропорт";
+"youChose"="Вы выбрали %@";
+"remindTitle"="Напомнить";
+"sourceTitle"="Источник:";
+"publicationDate"="Дата публикации:";

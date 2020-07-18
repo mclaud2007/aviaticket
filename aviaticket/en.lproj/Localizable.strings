@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  aviaticket
+
+  Created by Григорий Мартюшин on 15.07.2020.
+  Copyright © 2020 Григорий Мартюшин. All rights reserved.
+*/
+"newsTabTitle"="News";
+"favoriteTitle"="Favorites";
+"airportsTabTitle"="Countries";
+"photosTabTitle"="Photos";
+"loading"="... Loading ...";
+"reminderText"="You ask to remind %@";
+"reminderTextTitle"="Remind of you choise";
+"remindMakeDoneTitle"="Succesfull";
+"remindWillSendMessage"="Remind will send at %@";
+"close"="Close";
+"airportTitle"="Airport";
+"youChose"="You chose %@";
+"remindTitle"="Remind";
+"sourceTitle"="Source:";
+"publicationDate"="Date:";

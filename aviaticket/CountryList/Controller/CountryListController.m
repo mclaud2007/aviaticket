@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Страны";
+    self.title = NSLocalizedString(@"airportsTabTitle", @"");
     
     // Закастим вью как CountryListView
     CountryListView *view = (CountryListView *)self.view;
@@ -56,6 +56,28 @@
 }
 
 - (void)loadDataComplete:(NSNotification *)notification {
+    // Пытаемся получить список новостей в iCloud
+    NSPredicate *ckPredicate = [NSPredicate predicateWithValue:YES];
+    CKContainer *container = [CKContainer containerWithIdentifier:@"iCloud.im.mga.aviaticket.cloudcontainer"];
+    CKDatabase *publicDatabase = [container publicCloudDatabase];
+    CKQuery *query = [[CKQuery alloc] initWithRecordType:@"Favorites" predicate:ckPredicate];
+    
+    // Выполняем запрос
+    [publicDatabase performQuery:query inZoneWithID:nil completionHandler:^(NSArray<CKRecord *> * _Nullable results, NSError * _Nullable error) {
+        // Удаляем все объекты локального избранного - синхронизация будет только через облако
+        [[CoreDataStack shared] removeAllFromFavorite];
+        
+        for (CKRecord *record in results) {
+            // Создаем экземпляр новости из облачной бд
+            News *news = [[News alloc] initWithTitle:record[@"title"] ShortDescription:record[@"shortDescription"] Url:record[@"url"] Source:record[@"source"] Image:record[@"imageURL"] Date:record[@"publichedAt"]];
+            
+            // Добавляем этот экземпляр в избранное, если его там нет
+            if (![[CoreDataStack shared] favoriteFromNews:news]) {
+                [[CoreDataStack shared] addToFavorite:news];
+            }
+        }
+    }];
+    
     NSArray *scens = [UIApplication sharedApplication].connectedScenes.allObjects;
     NSArray *windows = [[scens firstObject] windows];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isKeyWindow == true"];

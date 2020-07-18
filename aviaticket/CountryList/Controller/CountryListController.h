@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CloudKit/CloudKit.h>
 #import "CountryListView.h"
+#import "CoreDataStack.h"
+#import "News.h"
 #import "SearchResultControllerTableViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN

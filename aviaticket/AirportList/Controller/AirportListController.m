@@ -46,12 +46,12 @@
 - (void)doneButtonDidTap
 {
     if (_datePicker.date && _selectedAirport) {
-        NSString *message = [NSString stringWithFormat:@"Вы просили напомнить, что выбрали %@", _selectedAirport.name];
-        Notification notification = NotificationMake(@"Напоминание о выборе", message, _datePicker.date, nil);
+        NSString *message = [NSString stringWithFormat:NSLocalizedString(@"reminderText", @""), _selectedAirport.name];
+        Notification notification = NotificationMake(NSLocalizedString(@"reminderTextTitle", @""), message, _datePicker.date, nil);
         [[NotificationCenter shared] sendNotification:notification];
 
-        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"Успешно" message:[NSString stringWithFormat:@"Уведомление будет отправлено - %@", _datePicker.date] preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Закрыть" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"remindMakeDoneTitle", @"") message:[NSString stringWithFormat:NSLocalizedString(@"remindWillSendMessage", @""), _datePicker.date] preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"close", @"") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             [self.view endEditing:YES];
             [self.dateTextField resignFirstResponder];
         }];
@@ -138,13 +138,24 @@
     // Аэропорт который выбрали
     _selectedAirport = [self.airports objectAtIndex:indexPath.row];
     
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"Аэропорт" message:[NSString stringWithFormat:@"Вы выбрали %@", _selectedAirport.name] preferredStyle:UIAlertControllerStyleActionSheet];
+    NSString *_selectedAirportName = _selectedAirport.name;
+    NSLocale *local = [NSLocale currentLocale];
+    NSString *localeID = [local.localeIdentifier substringToIndex:2];
+    NSDictionary *_translations = _selectedAirport.translations;
     
-    UIAlertAction *notificationAction = [UIAlertAction actionWithTitle:@"Напомнить" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    if (localeID) {
+        if ([_translations valueForKey:localeID]) {
+            _selectedAirportName = [_translations valueForKey:localeID];
+        }
+    }
+     
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"airportTitle", @"") message:[NSString stringWithFormat:NSLocalizedString(@"youChose", @""), _selectedAirportName] preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *notificationAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"remindTitle", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self.dateTextField becomeFirstResponder];
     }];
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Закрыть" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Close", @"") style:UIAlertActionStyleCancel handler:nil];
     
     [alertVC addAction:notificationAction];
     [alertVC addAction:cancelAction];

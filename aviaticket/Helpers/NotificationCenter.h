@@ -18,7 +18,7 @@ typedef struct Notification {
     __unsafe_unretained NSURL * _Nonnull imageURL;
 } Notification;
 
-@interface NotificationCenter : NSObject
+@interface NotificationCenter : NSObject <UNUserNotificationCenterDelegate>
 
 + (instancetype _Nonnull)shared;
 

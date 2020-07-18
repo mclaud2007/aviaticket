@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Новости";
+    self.title = NSLocalizedString(@"newsTabTitle", @"");
     
     // Закастим текущюю вью как NewsList
     NewsView *view = (NewsView *)self.view;

@@ -8,7 +8,7 @@
 
 #import "NotificationCenter.h"
 
-@interface NotificationCenter() <UNUserNotificationCenterDelegate>
+@interface NotificationCenter()
 @end
 
 @implementation NotificationCenter
@@ -53,18 +53,20 @@
     }
     
     NSCalendar *calendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
+    calendar.locale = [NSLocale currentLocale];
+    
     NSDateComponents *components = [calendar componentsInTimeZone:[NSTimeZone systemTimeZone] fromDate:notification.date];
     components.second = 0;
+
     NSDateComponents *newComponents = [[NSDateComponents alloc] init];
-    newComponents.calendar = calendar;
+    newComponents.calendar = calendar;        
     newComponents.timeZone = [NSTimeZone defaultTimeZone];
     newComponents.month = components.month;
     newComponents.day = components.day;
     newComponents.hour = components.hour;
     newComponents.minute = components.minute;
     
-    UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:15 repeats:NO];
-//    UNCalendarNotificationTrigger *trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:components repeats:NO];
+    UNCalendarNotificationTrigger *trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:newComponents repeats:NO];
     
     UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"Notification" content:content trigger:trigger];
 
@@ -78,9 +80,9 @@
     }];
 }
 
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
-    NSLog(@"%@", notification.request.content);
-    completionHandler(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert);
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
+{
+    completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert);
 }
 
 Notification NotificationMake(NSString * _Nullable title, NSString* _Nonnull body, NSDate* _Nonnull date, NSURL * _Nullable imageURL)
