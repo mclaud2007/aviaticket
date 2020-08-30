@@ -59,7 +59,20 @@
 }
 
 - (void)configureWith:(Country *)country {
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *localeID = [locale.localeIdentifier substringToIndex:2];
+    NSDictionary *_translations = country.translations;
+    
     self.countryName.text = country.name;
+    
+    if (localeID) {
+        NSString *localeCountryName = [_translations valueForKey:localeID];
+        
+        if (localeCountryName) {
+            self.countryName.text = localeCountryName;
+        }
+    }
+    
     self.countryCode.text = country.code;
 }
 

@@ -30,7 +30,7 @@
     UITabBarController *tabBar = [[UITabBarController alloc] init];
     
     // Вкладка новостей
-    UITabBarItem *newsListItem = [[UITabBarItem alloc] initWithTitle:@"News" image:[UIImage systemImageNamed:@"book"] tag:0];
+    UITabBarItem *newsListItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"newsTabTitle", @"") image:[UIImage systemImageNamed:@"book"] tag:0];
     NewsListController *newsList = [[NewsListController alloc] init];
     
     // Она завернута в навигешен контроллер
@@ -38,7 +38,7 @@
     newsNavController.tabBarItem = newsListItem;
 
     // Вкладка со странами
-    UITabBarItem *countryListItem = [[UITabBarItem alloc] initWithTitle:@"Airports" image:[UIImage systemImageNamed:@"airplane"] tag:1];
+    UITabBarItem *countryListItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"airportsTabTitle", @"") image:[UIImage systemImageNamed:@"airplane"] tag:1];
     CountryListController *countryList = [[CountryListController alloc] init];
     
     // У нее отдельный навигейшен контроллер
@@ -54,7 +54,7 @@
     UICollectionViewController *collectionControl = [[CollectionViewController alloc] initWithCollectionViewLayout:flowLayout];
     UINavigationController *collectNavController = [[UINavigationController alloc] initWithRootViewController:collectionControl];
     
-    UITabBarItem *colletionControllItem = [[UITabBarItem alloc] initWithTitle:@"Photo" image:[UIImage systemImageNamed:@"photo"] tag:2];
+    UITabBarItem *colletionControllItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"photosTabTitle", @"") image:[UIImage systemImageNamed:@"photo"] tag:2];
     collectNavController.tabBarItem = colletionControllItem;
 
     tabBar.viewControllers = @[navCountryControll, newsNavController, collectNavController];

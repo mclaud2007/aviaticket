@@ -29,6 +29,19 @@
 
 - (void)configureWith:(Airport *)airport {
     self.airportName.text = airport.name;
+    
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *localeID = [locale.localeIdentifier substringToIndex:2];
+    NSDictionary *_translations = airport.translations;
+    
+    if (localeID) {
+        NSString *localeName = [_translations valueForKey:localeID];
+        
+        if (localeName) {
+            self.airportName.text = localeName;
+        }
+    }
+    
     self.airportCode.text = airport.code;
 }
 

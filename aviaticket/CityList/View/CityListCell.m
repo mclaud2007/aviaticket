@@ -29,6 +29,19 @@
 
 - (void)configureWith:(City *)city {
     self.cityName.text = city.name;
+    
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *localeID = [locale.localeIdentifier substringToIndex:2];
+    NSDictionary *_translations = city.translations;
+    
+    if (localeID) {
+        NSString *localeName = [_translations valueForKey:localeID];
+        
+        if (localeName) {
+            self.cityName.text = localeName;
+        }
+    }
+    
     self.cityCode.text = city.code;
 }
 

@@ -58,16 +58,16 @@
     return self;
 }
 
-- (instancetype)initWithTitle:(NSString *)title ShortDescription:(NSString *)short_description Url:(NSString *)url Source:(NSString *)source Image:(NSString *)image Date:(NSString *)dateString {
+- (instancetype)initWithTitle:(NSString *)title ShortDescription:(NSString *)short_description Url:(NSString *)url Source:(NSString *)source Image:(NSString *)image Date:(NSDate *)date {
     _title = title;
     _short_description = short_description;
     _source = source;
     _imageURL = [NSURL URLWithString:image];
     
-    if (dateString != nil) {
+    if (date != nil) {
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
-        NSDate *date = [formatter dateFromString:dateString];
+//        NSDate *date = [formatter dateFromString:dateString];
         
         // Конвертируем в нужный нам формат
         [formatter setDateFormat:@"d.mm.yy, HH:mm"];

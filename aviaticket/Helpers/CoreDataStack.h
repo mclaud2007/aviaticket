@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <CloudKit/CloudKit.h>
 #import "FavoriteNews+CoreDataClass.h"
 #import "News.h"
 
@@ -18,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)shared;
 - (void)addToFavorite:(News *)news;
 - (void)removeFromFavorite:(News *)news;
+- (void)removeAllFromFavorite;
 - (FavoriteNews *)favoriteFromNews:(News *)news;
 - (NSArray *)favorites;
 

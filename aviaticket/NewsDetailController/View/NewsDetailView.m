@@ -35,7 +35,7 @@
     self.lblSourceTitle.translatesAutoresizingMaskIntoConstraints = false;
     self.lblSourceTitle.font = [UIFont systemFontOfSize:14];
     self.lblSourceTitle.textColor = [UIColor blackColor];
-    self.lblSourceTitle.text = @"Источник:";
+    self.lblSourceTitle.text = NSLocalizedString(@"sourceTitle", @"");
     [self addSubview:self.lblSourceTitle];
     
     self.lblSource = [[UILabel alloc] init];
@@ -49,7 +49,7 @@
     self.lblDateTitle.translatesAutoresizingMaskIntoConstraints = false;
     self.lblDateTitle.font = [UIFont systemFontOfSize:14];
     self.lblDateTitle.textColor = [UIColor blackColor];
-    self.lblDateTitle.text = @"Дата публикации:";
+    self.lblDateTitle.text = NSLocalizedString(@"publicationDate", @"");
     [self addSubview:self.lblDateTitle];
     
     self.lblDate = [[UILabel alloc] init];

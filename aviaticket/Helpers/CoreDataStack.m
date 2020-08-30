@@ -83,6 +83,34 @@
     favorite.url = news.url.absoluteString;
     favorite.addDate = [NSDate date];
     
+    // А также отправляем данные в iCloud, но только в том случае, если удалось создать id для новости
+    if (favorite.id != nil) {
+        CKRecordID *newsId = [[CKRecordID alloc] initWithRecordName:favorite.id];
+        CKRecord *publicationRecord = [[CKRecord alloc] initWithRecordType:@"Favorites" recordID:newsId];
+        
+        publicationRecord[@"imageURL"] = favorite.imageURL;
+        publicationRecord[@"publichedAt"] = favorite.publiched_at;
+        publicationRecord[@"shortDescription"] = favorite.short_description;
+        publicationRecord[@"source"] = favorite.source;
+        publicationRecord[@"title"] = favorite.title;
+        publicationRecord[@"url"] = favorite.url;
+        publicationRecord[@"addDate"] = favorite.addDate;
+        
+        // Получаем экземпляр базы данных
+        CKContainer *container = [CKContainer containerWithIdentifier:@"iCloud.im.mga.aviaticket.cloudcontainer"];
+        CKDatabase *publicDatabase = [container publicCloudDatabase];
+        
+        // Сохранение записи
+        [publicDatabase saveRecord:publicationRecord completionHandler:^(CKRecord * _Nullable record, NSError * _Nullable error) {
+            
+            if (error) {
+                NSLog(@"%@", error);
+                NSLog(@"Can't save in iCloud");
+                return;
+            }
+        }];
+    }
+    
     [self save];
     
 }
@@ -106,9 +134,40 @@
 {
     FavoriteNews *favorite = [self favoriteFromNews:news];
     if(favorite) {
-        [_managedObjectContext deleteObject:favorite];
+        // А также удалим из iCloud ссылку на эту новость
+        if (favorite.id) {
+            CKRecordID *recordID = [[CKRecordID alloc] initWithRecordName:favorite.id];
+            CKContainer *containter = [CKContainer containerWithIdentifier:@"iCloud.im.mga.aviaticket.cloudcontainer"];
+            CKDatabase *publicDatabase = [containter publicCloudDatabase];
+            
+            // Пытаемся найти запись о новости в iCloud
+            [publicDatabase fetchRecordWithID:recordID completionHandler:^(CKRecord * _Nullable record, NSError * _Nullable error) {
+                if (!error) {
+                    [publicDatabase deleteRecordWithID:recordID completionHandler:^(CKRecordID * _Nullable recordID, NSError * _Nullable error) {
+                        
+                        if (error) {
+                            NSLog(@"Can't del record in iCloud");
+                        }
+                    }];
+                }
+            }];
+            
+            // Удаляем ссылку в локальной базе
+            [_managedObjectContext deleteObject:favorite];
+        }
+        
         [self save];
     }
+}
+
+- (void)removeAllFromFavorite
+{
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"FavoriteNews"];
+    NSBatchDeleteRequest *delete = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
+    NSError *deleteError = nil;
+    
+    [_managedObjectContext executeRequest:delete error:&deleteError];
+    [self save];
 }
 
 -(NSArray *)favorites {

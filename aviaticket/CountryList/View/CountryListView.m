@@ -25,7 +25,7 @@
     // Цвет фона будет белый
     self.backgroundColor = [UIColor whiteColor];
     
-    NSString *loadingText = @"... Загрузка  ...";
+    NSString *loadingText = NSLocalizedString(@"loading", @"");
     CGFloat labelWidth = (self.bounds.size.width / 2);
     UIFont *font = [UIFont systemFontOfSize:30];
     CGSize size = CGSizeMake(self.bounds.size.width/2, FLT_MAX);
